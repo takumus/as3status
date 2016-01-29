@@ -17,7 +17,7 @@ package jp.takumus.utils.status
 		private var _fpsLabelRect:Rectangle;
 		private var _fpsGraphRect:Rectangle;
 		private var _fpsGraphLineRect:Rectangle;
-		private var _fpsGraphLineWidth:int = 1;
+		private var _fpsGraphLineWidth:int = 2;
 		private var _prevTime:int;
 		private var _timer:Timer;
 		private var _frame:int = 0;
@@ -74,7 +74,7 @@ package jp.takumus.utils.status
 			_fpsGraphLineRect.width = _fpsGraphLineWidth;
 			_fpsGraphLineRect.height = h;
 			
-			bitmapData.fillRect(_fpsGraphLineRect, 0xff0000);
+			bitmapData.fillRect(_fpsGraphLineRect, 0xff9900);
 		}
 	}
 }

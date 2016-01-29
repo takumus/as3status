@@ -16,7 +16,7 @@ package jp.takumus.utils.status
 			_charBMDs = new Dictionary();
 			_textField = new TextField();
 			_textField.autoSize = "left";
-			_textField.defaultTextFormat = new TextFormat("_sans", 10, 0xffffff);
+			_textField.defaultTextFormat = new TextFormat("_sans", 10, 0xffffff, true);
 			_tmpPos = new Point();
 			
 			for(var i:int = 0; i < def.length; i ++){
