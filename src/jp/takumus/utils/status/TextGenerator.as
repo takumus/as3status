@@ -3,19 +3,25 @@ package jp.takumus.utils.status
 	import flash.display.BitmapData;
 	import flash.geom.Point;
 	import flash.text.TextField;
+	import flash.text.TextFormat;
 	import flash.utils.Dictionary;
 	
 	internal class TextGenerator
 	{
-		private var _charBMDs:Dictionary;
-		private var _textField:TextField;
-		private var _tmpPos:Point;
-		public function TextGenerator()
+		private static var _charBMDs:Dictionary;
+		private static var _textField:TextField;
+		private static var _tmpPos:Point;
+		public function TextGenerator(def:String = "")
 		{
 			_charBMDs = new Dictionary();
 			_textField = new TextField();
 			_textField.autoSize = "left";
+			_textField.defaultTextFormat = new TextFormat("_sans", 10);
 			_tmpPos = new Point();
+			
+			for(var i:int = 0; i < def.length; i ++){
+				getCharBMD(def.charAt(i));
+			}
 		}
 		public function renderText(target:BitmapData, x:Number, y:Number, text:String):void
 		{
@@ -26,12 +32,13 @@ package jp.takumus.utils.status
 				x += c.rect.width;
 				target.copyPixels(c.bmd, c.rect, _tmpPos);
 			}
+			text = null;
 		}
 		private function getCharBMD(char:String):Object
 		{
 			if(!_charBMDs[char]){
 				_textField.text = char;
-				var charBMD:BitmapData = new BitmapData(_textField.width, _textField.height, true, 0x00000000);
+				var charBMD:BitmapData = new BitmapData(_textField.width, _textField.height, false, 0xffffff);
 				charBMD.draw(_textField);
 				_charBMDs[char] = {};
 				_charBMDs[char].bmd = charBMD;
