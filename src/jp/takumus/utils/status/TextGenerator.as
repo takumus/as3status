@@ -16,12 +16,17 @@ package jp.takumus.utils.status
 			_charBMDs = new Dictionary();
 			_textField = new TextField();
 			_textField.autoSize = "left";
-			_textField.defaultTextFormat = new TextFormat("_sans", 10);
+			_textField.defaultTextFormat = new TextFormat("_sans", 10, 0xffffff);
 			_tmpPos = new Point();
 			
 			for(var i:int = 0; i < def.length; i ++){
 				getCharBMD(def.charAt(i));
 			}
+		}
+		public function get height():int
+		{
+			_textField.text = "X";
+			return _textField.height;
 		}
 		public function renderText(target:BitmapData, x:Number, y:Number, text:String):void
 		{
@@ -38,7 +43,7 @@ package jp.takumus.utils.status
 		{
 			if(!_charBMDs[char]){
 				_textField.text = char;
-				var charBMD:BitmapData = new BitmapData(_textField.width, _textField.height, false, 0xffffff);
+				var charBMD:BitmapData = new BitmapData(_textField.width, _textField.height, false, 0x000000);
 				charBMD.draw(_textField);
 				_charBMDs[char] = {};
 				_charBMDs[char].bmd = charBMD;
