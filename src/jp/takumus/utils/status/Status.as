@@ -12,7 +12,7 @@ package jp.takumus.utils.status
 	public class Status extends Bitmap
 	{
 		private const WIDTH:int = 60;
-		private const HEIGHT:int = 40;
+		private const HEIGHT:int = 80;
 		private const _textGen:TextGenerator = new TextGenerator("1234567890FPS.");
 		private var _fpsLabelRect:Rectangle;
 		private var _fpsGraphRect:Rectangle;
