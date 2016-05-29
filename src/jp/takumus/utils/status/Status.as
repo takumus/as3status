@@ -12,7 +12,7 @@ package jp.takumus.utils.status
 	public class Status extends Bitmap
 	{
 		private const WIDTH:int = 60;
-		private const HEIGHT:int = 80;
+		private const HEIGHT:int = 60;
 		private const _textGen:TextGenerator = new TextGenerator("1234567890FPS.");
 		private var _fpsLabelRect:Rectangle;
 		private var _fpsGraphRect:Rectangle;
@@ -21,13 +21,13 @@ package jp.takumus.utils.status
 		private var _prevTime:int;
 		private var _timer:Timer;
 		private var _frame:int = 0;
-		private var _rate:Number = 1.0;
+		private var _rate:Number = 0.5;
 		public function Status()
 		{
 			super();
 			bitmapData = new BitmapData(WIDTH, HEIGHT, false, 0x000000);
 			_fpsLabelRect = new Rectangle(0, 0, WIDTH, _textGen.height);
-			_fpsGraphRect = new Rectangle(0, _fpsLabelRect.height, WIDTH, HEIGHT - _fpsLabelRect.height);
+			_fpsGraphRect = new Rectangle(0, _fpsLabelRect.height, WIDTH, HEIGHT);
 			_fpsGraphLineRect = new Rectangle(0, 0, 0, 0);
 			_timer = new Timer(1000*_rate);
 			_timer.start();
